@@ -24,3 +24,7 @@ get "/use_layouts/:name" do
 
   erb template, { :locals => params, :layout => layout }
 end
+
+get "/use_view_files/:name" do
+  erb :hello_name, { :locals => params, :layout => :layout }
+end
