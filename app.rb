@@ -38,3 +38,7 @@ end
 get "/name_form" do
   erb :name_form
 end
+
+get "/name_form_submission" do
+  erb :hello_name, { :locals => params }
+end
