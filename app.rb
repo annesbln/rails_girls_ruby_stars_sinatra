@@ -28,3 +28,9 @@ end
 get "/use_view_files/:name" do
   erb :hello_name, { :locals => params, :layout => :layout }
 end
+
+get "/use_instance_variables/:name" do
+  @name = params[:name]
+
+  erb :hello_with_instance_variable
+end
