@@ -34,3 +34,7 @@ get "/use_instance_variables/:name" do
 
   erb :hello_with_instance_variable
 end
+
+get "/name_form" do
+  erb :name_form
+end
