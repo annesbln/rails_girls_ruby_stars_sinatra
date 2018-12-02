@@ -2,7 +2,14 @@ require "sinatra"
 require "erb"
 
 get "/" do
-  "<html><body><h1>Hello World!</h1></body></html>"
+  "<html>
+    <body>
+      <h1>Hi,<br>good to see you!</h1>
+      <h2>Please click the button to start the app.</h2>
+      <p>This will store names and display them as a list.</p>
+      <input type=\"submit\" value=\"Start\" onclick=\"window.location='/name_form';\" />
+    </body>
+  </html>"
 end
 
 get "/say_hello/:name" do
