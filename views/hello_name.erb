@@ -1,1 +1,8 @@
 <h1>Hello <%= name %>!</h1>
+<h2>This is the whole names list so far:</h2>
+<ul>
+  <% @names.each do |name| %>
+    <li><%= name %></li>
+  <% end %>
+</ul>
+<input type="submit" value="Go back to enter a new name" onclick="window.location='/name_form';" />

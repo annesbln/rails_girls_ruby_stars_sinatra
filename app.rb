@@ -35,14 +35,29 @@ get "/use_instance_variables/:name" do
   erb :hello_with_instance_variable
 end
 
-get "/name_form" do
-  erb :name_form
-end
-
 get "/name_form_submission" do
   erb :hello_name, { :locals => params }
 end
 
+def store_name(filename, string)
+  File.open(filename, "a+") do |file|
+    file.puts(string)
+  end
+end
+
+get "/name_form" do
+  @name = params["name"]
+  erb :name_form
+end
+
+def read_names
+  return [] unless File.exist?("names.txt")
+  File.read("names.txt").split("\n")
+end
+
 post "/name_form" do
+  @name = params["name"]
+  store_name("names.txt", @name)
+  @names = read_names
   erb :hello_name, { :locals => params }
 end
